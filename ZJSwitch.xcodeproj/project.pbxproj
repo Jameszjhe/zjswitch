@@ -1,0 +1,465 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D282347619091918006DA13E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D282347519091918006DA13E /* Foundation.framework */; };
+		D282347819091918006DA13E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D282347719091918006DA13E /* CoreGraphics.framework */; };
+		D282347A19091918006DA13E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D282347919091918006DA13E /* UIKit.framework */; };
+		D282348019091918006DA13E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D282347E19091918006DA13E /* InfoPlist.strings */; };
+		D282348219091918006DA13E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D282348119091918006DA13E /* main.m */; };
+		D282348619091918006DA13E /* ZJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D282348519091918006DA13E /* ZJAppDelegate.m */; };
+		D282348819091918006DA13E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D282348719091918006DA13E /* Images.xcassets */; };
+		D282348F19091918006DA13E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D282348E19091918006DA13E /* XCTest.framework */; };
+		D282349019091918006DA13E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D282347519091918006DA13E /* Foundation.framework */; };
+		D282349119091918006DA13E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D282347919091918006DA13E /* UIKit.framework */; };
+		D282349919091918006DA13E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D282349719091918006DA13E /* InfoPlist.strings */; };
+		D282349B19091918006DA13E /* ZJSwitchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D282349A19091918006DA13E /* ZJSwitchTests.m */; };
+		D28234A619091936006DA13E /* ZJSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = D28234A519091936006DA13E /* ZJSwitch.m */; };
+		D28234A919091DB6006DA13E /* ZJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D28234A819091DB6006DA13E /* ZJViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D282349219091918006DA13E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D282346A19091918006DA13E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D282347119091918006DA13E;
+			remoteInfo = ZJSwitch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D282347219091918006DA13E /* ZJSwitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZJSwitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D282347519091918006DA13E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D282347719091918006DA13E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D282347919091918006DA13E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D282347D19091918006DA13E /* ZJSwitch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZJSwitch-Info.plist"; sourceTree = "<group>"; };
+		D282347F19091918006DA13E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D282348119091918006DA13E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D282348319091918006DA13E /* ZJSwitch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZJSwitch-Prefix.pch"; sourceTree = "<group>"; };
+		D282348419091918006DA13E /* ZJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJAppDelegate.h; sourceTree = "<group>"; };
+		D282348519091918006DA13E /* ZJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJAppDelegate.m; sourceTree = "<group>"; };
+		D282348719091918006DA13E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D282348D19091918006DA13E /* ZJSwitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZJSwitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D282348E19091918006DA13E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D282349619091918006DA13E /* ZJSwitchTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZJSwitchTests-Info.plist"; sourceTree = "<group>"; };
+		D282349819091918006DA13E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D282349A19091918006DA13E /* ZJSwitchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJSwitchTests.m; sourceTree = "<group>"; };
+		D28234A419091936006DA13E /* ZJSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJSwitch.h; sourceTree = "<group>"; };
+		D28234A519091936006DA13E /* ZJSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJSwitch.m; sourceTree = "<group>"; };
+		D28234A719091DB6006DA13E /* ZJViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJViewController.h; sourceTree = "<group>"; };
+		D28234A819091DB6006DA13E /* ZJViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D282346F19091918006DA13E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D282347819091918006DA13E /* CoreGraphics.framework in Frameworks */,
+				D282347A19091918006DA13E /* UIKit.framework in Frameworks */,
+				D282347619091918006DA13E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D282348A19091918006DA13E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D282348F19091918006DA13E /* XCTest.framework in Frameworks */,
+				D282349119091918006DA13E /* UIKit.framework in Frameworks */,
+				D282349019091918006DA13E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D282346919091918006DA13E = {
+			isa = PBXGroup;
+			children = (
+				D282347B19091918006DA13E /* ZJSwitch */,
+				D282349419091918006DA13E /* ZJSwitchTests */,
+				D282347419091918006DA13E /* Frameworks */,
+				D282347319091918006DA13E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D282347319091918006DA13E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D282347219091918006DA13E /* ZJSwitch.app */,
+				D282348D19091918006DA13E /* ZJSwitchTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D282347419091918006DA13E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D282347519091918006DA13E /* Foundation.framework */,
+				D282347719091918006DA13E /* CoreGraphics.framework */,
+				D282347919091918006DA13E /* UIKit.framework */,
+				D282348E19091918006DA13E /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D282347B19091918006DA13E /* ZJSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				D282348419091918006DA13E /* ZJAppDelegate.h */,
+				D282348519091918006DA13E /* ZJAppDelegate.m */,
+				D282348719091918006DA13E /* Images.xcassets */,
+				D282347C19091918006DA13E /* Supporting Files */,
+				D28234A419091936006DA13E /* ZJSwitch.h */,
+				D28234A519091936006DA13E /* ZJSwitch.m */,
+				D28234A719091DB6006DA13E /* ZJViewController.h */,
+				D28234A819091DB6006DA13E /* ZJViewController.m */,
+			);
+			path = ZJSwitch;
+			sourceTree = "<group>";
+		};
+		D282347C19091918006DA13E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D282347D19091918006DA13E /* ZJSwitch-Info.plist */,
+				D282347E19091918006DA13E /* InfoPlist.strings */,
+				D282348119091918006DA13E /* main.m */,
+				D282348319091918006DA13E /* ZJSwitch-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D282349419091918006DA13E /* ZJSwitchTests */ = {
+			isa = PBXGroup;
+			children = (
+				D282349A19091918006DA13E /* ZJSwitchTests.m */,
+				D282349519091918006DA13E /* Supporting Files */,
+			);
+			path = ZJSwitchTests;
+			sourceTree = "<group>";
+		};
+		D282349519091918006DA13E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D282349619091918006DA13E /* ZJSwitchTests-Info.plist */,
+				D282349719091918006DA13E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D282347119091918006DA13E /* ZJSwitch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D282349E19091918006DA13E /* Build configuration list for PBXNativeTarget "ZJSwitch" */;
+			buildPhases = (
+				D282346E19091918006DA13E /* Sources */,
+				D282346F19091918006DA13E /* Frameworks */,
+				D282347019091918006DA13E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZJSwitch;
+			productName = ZJSwitch;
+			productReference = D282347219091918006DA13E /* ZJSwitch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D282348C19091918006DA13E /* ZJSwitchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D28234A119091918006DA13E /* Build configuration list for PBXNativeTarget "ZJSwitchTests" */;
+			buildPhases = (
+				D282348919091918006DA13E /* Sources */,
+				D282348A19091918006DA13E /* Frameworks */,
+				D282348B19091918006DA13E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D282349319091918006DA13E /* PBXTargetDependency */,
+			);
+			name = ZJSwitchTests;
+			productName = ZJSwitchTests;
+			productReference = D282348D19091918006DA13E /* ZJSwitchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D282346A19091918006DA13E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ZJ;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = mobieden;
+				TargetAttributes = {
+					D282348C19091918006DA13E = {
+						TestTargetID = D282347119091918006DA13E;
+					};
+				};
+			};
+			buildConfigurationList = D282346D19091918006DA13E /* Build configuration list for PBXProject "ZJSwitch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D282346919091918006DA13E;
+			productRefGroup = D282347319091918006DA13E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D282347119091918006DA13E /* ZJSwitch */,
+				D282348C19091918006DA13E /* ZJSwitchTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D282347019091918006DA13E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D282348019091918006DA13E /* InfoPlist.strings in Resources */,
+				D282348819091918006DA13E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D282348B19091918006DA13E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D282349919091918006DA13E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D282346E19091918006DA13E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D28234A919091DB6006DA13E /* ZJViewController.m in Sources */,
+				D282348619091918006DA13E /* ZJAppDelegate.m in Sources */,
+				D282348219091918006DA13E /* main.m in Sources */,
+				D28234A619091936006DA13E /* ZJSwitch.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D282348919091918006DA13E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D282349B19091918006DA13E /* ZJSwitchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D282349319091918006DA13E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D282347119091918006DA13E /* ZJSwitch */;
+			targetProxy = D282349219091918006DA13E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D282347E19091918006DA13E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D282347F19091918006DA13E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D282349719091918006DA13E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D282349819091918006DA13E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D282349C19091918006DA13E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D282349D19091918006DA13E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D282349F19091918006DA13E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZJSwitch/ZJSwitch-Prefix.pch";
+				INFOPLIST_FILE = "ZJSwitch/ZJSwitch-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D28234A019091918006DA13E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZJSwitch/ZJSwitch-Prefix.pch";
+				INFOPLIST_FILE = "ZJSwitch/ZJSwitch-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D28234A219091918006DA13E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZJSwitch.app/ZJSwitch";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZJSwitch/ZJSwitch-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ZJSwitchTests/ZJSwitchTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D28234A319091918006DA13E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZJSwitch.app/ZJSwitch";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZJSwitch/ZJSwitch-Prefix.pch";
+				INFOPLIST_FILE = "ZJSwitchTests/ZJSwitchTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D282346D19091918006DA13E /* Build configuration list for PBXProject "ZJSwitch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D282349C19091918006DA13E /* Debug */,
+				D282349D19091918006DA13E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D282349E19091918006DA13E /* Build configuration list for PBXNativeTarget "ZJSwitch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D282349F19091918006DA13E /* Debug */,
+				D28234A019091918006DA13E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D28234A119091918006DA13E /* Build configuration list for PBXNativeTarget "ZJSwitchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D28234A219091918006DA13E /* Debug */,
+				D28234A319091918006DA13E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D282346A19091918006DA13E /* Project object */;
+}
