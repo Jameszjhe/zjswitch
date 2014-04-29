@@ -175,7 +175,7 @@
 
 - (void)setOn:(BOOL)on
 {
-    [self setOn:on animated:YES];
+    [self setOn:on animated:NO];
 }
 
 - (void)setOn:(BOOL)on animated:(BOOL)animated
