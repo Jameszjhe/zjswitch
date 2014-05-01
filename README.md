@@ -28,6 +28,7 @@ How to use it
     [switch2 addTarget:self action:@selector(handleSwitchEvent:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:switch2];
 ```
+
 How does it look like
 --------
 
