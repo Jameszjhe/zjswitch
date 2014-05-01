@@ -9,7 +9,7 @@ How to use ZJWitch
 --------
 
 ```Objective-C
-ZJSwitch *switch0 = [[ZJSwitch alloc] initWithFrame:CGRectMake(100, 100, 60, 31)];
+    ZJSwitch *switch0 = [[ZJSwitch alloc] initWithFrame:CGRectMake(100, 100, 60, 31)];
     switch0.backgroundColor = [UIColor clearColor];
     [switch0 addTarget:self action:@selector(handleSwitchEvent:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:switch0];
@@ -29,6 +29,6 @@ ZJSwitch *switch0 = [[ZJSwitch alloc] initWithFrame:CGRectMake(100, 100, 60, 31)
     [self.view addSubview:switch2];
 ```
 
-(http://jameszjhe.qiniudn.com/zjswitch)
+![ZJSwitch](http://jameszjhe.qiniudn.com/zjswitch)
 
 
