@@ -5,7 +5,7 @@ ZJSwitch is a simple implmentation for swtich control that similar to UISwitch.
 
 ZJSwitch can add text on control for on of off status.
 
-How to use ZJWitch
+How to use it
 --------
 
 ```Objective-C
@@ -28,6 +28,8 @@ How to use ZJWitch
     [switch2 addTarget:self action:@selector(handleSwitchEvent:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:switch2];
 ```
+How does it look like
+--------
 
 ![ZJSwitch](http://jameszjhe.qiniudn.com/zjswitch)
 
