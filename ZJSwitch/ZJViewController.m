@@ -48,10 +48,24 @@
 {
     [super viewDidLoad];
     
-    ZJSwitch *aSwitch = [[ZJSwitch alloc] initWithFrame:CGRectMake(100, 100, 60, 50)];
-    aSwitch.backgroundColor = [UIColor clearColor];
-    [aSwitch addTarget:self action:@selector(handleSwitchEvent:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:aSwitch];
+    ZJSwitch *switch0 = [[ZJSwitch alloc] initWithFrame:CGRectMake(100, 100, 60, 31)];
+    switch0.backgroundColor = [UIColor clearColor];
+    [switch0 addTarget:self action:@selector(handleSwitchEvent:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:switch0];
+    
+    ZJSwitch *switch1 = [[ZJSwitch alloc] initWithFrame:CGRectMake(100, 140, 60, 31)];
+    switch1.backgroundColor = [UIColor clearColor];
+    switch1.tintColor = [UIColor orangeColor];
+    [switch1 addTarget:self action:@selector(handleSwitchEvent:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:switch1];
+    
+    ZJSwitch *switch2 = [[ZJSwitch alloc] initWithFrame:CGRectMake(100, 180, 80, 31)];
+    switch2.backgroundColor = [UIColor clearColor];
+    switch2.tintColor = [UIColor orangeColor];
+    switch2.onText = @"ON";
+    switch2.offText = @"OFF";
+    [switch2 addTarget:self action:@selector(handleSwitchEvent:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:switch2];
 }
 
 - (void)didReceiveMemoryWarning

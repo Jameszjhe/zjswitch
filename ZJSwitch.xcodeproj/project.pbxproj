@@ -373,6 +373,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZJSwitch/ZJSwitch-Prefix.pch";
 				INFOPLIST_FILE = "ZJSwitch/ZJSwitch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -386,6 +387,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZJSwitch/ZJSwitch-Prefix.pch";
 				INFOPLIST_FILE = "ZJSwitch/ZJSwitch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -450,6 +452,7 @@
 				D28234A019091918006DA13E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D28234A119091918006DA13E /* Build configuration list for PBXNativeTarget "ZJSwitchTests" */ = {
 			isa = XCConfigurationList;
@@ -458,6 +461,7 @@
 				D28234A319091918006DA13E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

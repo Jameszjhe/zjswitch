@@ -365,7 +365,7 @@
 - (void)handleTapTapGestureRecognizerEvent:(UITapGestureRecognizer *)recognizer
 {
     if (recognizer.state == UIGestureRecognizerStateEnded) {
-        [self setOn:!self.isOn animated:YES];
+        [self setOn:!self.isOn animated:NO];
     }
 }
 
