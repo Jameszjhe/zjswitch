@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>BD54A403-E44F-4CEF-A8C8-A6B48BE7B298</string>
+	<string>524C5D46-6169-403C-B40F-EC1498964D7A</string>
 	<key>IDESourceControlProjectName</key>
 	<string>ZJSwitch</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>28645C56-9ACF-4FFD-A21F-E59C8FEBDA52</key>
-		<string>https://bitbucket.org/jamesoo/zjswitch.git</string>
+		<key>EA990A1B-DA50-4AB4-94F0-753FDD9182BB</key>
+		<string>https://bitbucket.org/jameszj/zjswitch.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ZJSwitch.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>28645C56-9ACF-4FFD-A21F-E59C8FEBDA52</key>
+		<key>EA990A1B-DA50-4AB4-94F0-753FDD9182BB</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://bitbucket.org/jamesoo/zjswitch.git</string>
+	<string>https://bitbucket.org/jameszj/zjswitch.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>28645C56-9ACF-4FFD-A21F-E59C8FEBDA52</string>
+	<string>EA990A1B-DA50-4AB4-94F0-753FDD9182BB</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>28645C56-9ACF-4FFD-A21F-E59C8FEBDA52</string>
+			<string>EA990A1B-DA50-4AB4-94F0-753FDD9182BB</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ZJSwitch</string>
+			<string>zjswitch</string>
 		</dict>
 	</array>
 </dict>
