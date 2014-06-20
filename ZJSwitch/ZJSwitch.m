@@ -50,6 +50,8 @@
 
 - (void)handlePanGestureRecognizerEvent:(UIPanGestureRecognizer *)recognizer;
 
+- (void)scaleKnodViewFrame:(BOOL)scale;
+
 @end
 
 @implementation ZJSwitch
@@ -209,83 +211,90 @@
     
     CGFloat margin = (CGRectGetHeight(self.bounds) - ZJSwitchKnobSize) / 2.0;
     
-    if (!animated) {
-        if (!self.isOn) {
-            // frame of off status
-            self.onContentView.frame = CGRectMake(-1 * CGRectGetWidth(self.containerView.bounds),
-                                                  0,
-                                                  CGRectGetWidth(self.containerView.bounds),
-                                                  CGRectGetHeight(self.containerView.bounds));
-            
-            self.offContentView.frame = CGRectMake(0,
-                                                   0,
-                                                   CGRectGetWidth(self.containerView.bounds),
-                                                   CGRectGetHeight(self.containerView.bounds));
-            
-            self.knobView.frame = CGRectMake(margin,
-                                             margin,
-                                             ZJSwitchKnobSize,
-                                             ZJSwitchKnobSize);
-        } else {
-            // frame of on status
-            self.onContentView.frame = CGRectMake(0,
-                                                  0,
-                                                  CGRectGetWidth(self.containerView.bounds),
-                                                  CGRectGetHeight(self.containerView.bounds));
-            
-            self.offContentView.frame = CGRectMake(0,
-                                                   CGRectGetWidth(self.containerView.bounds),
-                                                   CGRectGetWidth(self.containerView.bounds),
-                                                   CGRectGetHeight(self.containerView.bounds));
-            
-            self.knobView.frame = CGRectMake(CGRectGetWidth(self.containerView.bounds) - margin - ZJSwitchKnobSize,
-                                             margin,
-                                             ZJSwitchKnobSize,
-                                             ZJSwitchKnobSize);
-        }
+    CGRect onFrame = self.onContentView.frame;
+    CGRect offFrame = self.offContentView.frame;
+    CGRect knobFrame = self.knobView.frame;
+    
+    if (!self.isOn) {
+        // frame of off status
+        self.onContentView.frame = CGRectMake(-1 * CGRectGetWidth(self.containerView.bounds),
+                                              0,
+                                              CGRectGetWidth(self.containerView.bounds),
+                                              CGRectGetHeight(self.containerView.bounds));
+        
+        self.offContentView.frame = CGRectMake(0,
+                                               0,
+                                               CGRectGetWidth(self.containerView.bounds),
+                                               CGRectGetHeight(self.containerView.bounds));
+        
+        self.knobView.frame = CGRectMake(margin,
+                                         margin,
+                                         ZJSwitchKnobSize,
+                                         ZJSwitchKnobSize);
     } else {
-        if (self.isOn) {
-            [UIView animateWithDuration:0.25
-                             animations:^{
-                                 self.knobView.frame = CGRectMake(CGRectGetWidth(self.containerView.bounds) - margin - ZJSwitchKnobSize,
-                                                                  margin,
-                                                                  ZJSwitchKnobSize,
-                                                                  ZJSwitchKnobSize);
-                             }
-                             completion:^(BOOL finished){
-                                 self.onContentView.frame = CGRectMake(0,
-                                                                       0,
-                                                                       CGRectGetWidth(self.containerView.bounds),
-                                                                       CGRectGetHeight(self.containerView.bounds));
-                                 
-                                 self.offContentView.frame = CGRectMake(0,
-                                                                        CGRectGetWidth(self.containerView.bounds),
-                                                                        CGRectGetWidth(self.containerView.bounds),
-                                                                        CGRectGetHeight(self.containerView.bounds));
-                             }];
-        } else {
-            [UIView animateWithDuration:0.25
-                             animations:^{
-                                 self.knobView.frame = CGRectMake(margin,
-                                                                  margin,
-                                                                  ZJSwitchKnobSize,
-                                                                  ZJSwitchKnobSize);
-                             }
-                             completion:^(BOOL finished){
-                                 self.onContentView.frame = CGRectMake(-1 * CGRectGetWidth(self.containerView.bounds),
-                                                                       0,
-                                                                       CGRectGetWidth(self.containerView.bounds),
-                                                                       CGRectGetHeight(self.containerView.bounds));
-                                 
-                                 self.offContentView.frame = CGRectMake(0,
-                                                                        0,
-                                                                        CGRectGetWidth(self.containerView.bounds),
-                                                                        CGRectGetHeight(self.containerView.bounds));
-                             }];
-        }
+        // frame of on status
+        self.onContentView.frame = CGRectMake(0,
+                                              0,
+                                              CGRectGetWidth(self.containerView.bounds),
+                                              CGRectGetHeight(self.containerView.bounds));
+        
+        self.offContentView.frame = CGRectMake(CGRectGetWidth(self.containerView.bounds),
+                                               0,
+                                               CGRectGetWidth(self.containerView.bounds),
+                                               CGRectGetHeight(self.containerView.bounds));
+        
+        self.knobView.frame = CGRectMake(CGRectGetWidth(self.containerView.bounds) - margin - ZJSwitchKnobSize,
+                                         margin,
+                                         ZJSwitchKnobSize,
+                                         ZJSwitchKnobSize);
     }
     
-    [self sendActionsForControlEvents:UIControlEventValueChanged];
+    if (animated) {
+        // on
+        CABasicAnimation *animation1 = [CABasicAnimation animationWithKeyPath:@"bounds"];
+        [animation1 setFromValue:[NSValue valueWithCGRect:CGRectMake(0, 0, CGRectGetWidth(onFrame), CGRectGetHeight(onFrame))]];
+        [animation1 setToValue:[NSValue valueWithCGRect:CGRectMake(0, 0, CGRectGetWidth(self.onContentView.frame), CGRectGetHeight(self.onContentView.frame))]];
+        [animation1 setDuration:0.3];
+        [animation1 setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+        [self.onContentView.layer addAnimation:animation1 forKey:NULL];
+        
+        CABasicAnimation *animation2 = [CABasicAnimation animationWithKeyPath:@"position"];
+        [animation2 setFromValue:[NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(onFrame), CGRectGetMidY(onFrame))]];
+        [animation2 setToValue:[NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(self.onContentView.frame), CGRectGetMidY(self.onContentView.frame))]];
+        [animation2 setDuration:0.3];
+        [animation2 setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+        [self.onContentView.layer addAnimation:animation2 forKey:NULL];
+        
+        // off
+        CABasicAnimation *animation3 = [CABasicAnimation animationWithKeyPath:@"bounds"];
+        [animation3 setFromValue:[NSValue valueWithCGRect:CGRectMake(0, 0, CGRectGetWidth(offFrame), CGRectGetHeight(offFrame))]];
+        [animation3 setToValue:[NSValue valueWithCGRect:CGRectMake(0, 0, CGRectGetWidth(self.offContentView.frame), CGRectGetHeight(self.offContentView.frame))]];
+        [animation3 setDuration:0.3];
+        [animation3 setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+        [self.offContentView.layer addAnimation:animation3 forKey:NULL];
+        
+        CABasicAnimation *animation4 = [CABasicAnimation animationWithKeyPath:@"position"];
+        [animation4 setFromValue:[NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(offFrame), CGRectGetMidY(offFrame))]];
+        [animation4 setToValue:[NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(self.offContentView.frame), CGRectGetMidY(self.offContentView.frame))]];
+        [animation4 setDuration:0.3];
+        [animation4 setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+        [self.offContentView.layer addAnimation:animation4 forKey:NULL];
+        
+        // knob
+        CABasicAnimation *animation5 = [CABasicAnimation animationWithKeyPath:@"bounds"];
+        [animation5 setFromValue:[NSValue valueWithCGRect:CGRectMake(0, 0, CGRectGetWidth(knobFrame), CGRectGetHeight(knobFrame))]];
+        [animation5 setToValue:[NSValue valueWithCGRect:CGRectMake(0, 0, CGRectGetWidth(self.knobView.frame), CGRectGetHeight(self.knobView.frame))]];
+        [animation5 setDuration:0.3];
+        [animation5 setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+        [self.knobView.layer addAnimation:animation5 forKey:NULL];
+        
+        CABasicAnimation *animation6 = [CABasicAnimation animationWithKeyPath:@"position"];
+        [animation6 setFromValue:[NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(knobFrame), CGRectGetMidY(knobFrame))]];
+        [animation6 setToValue:[NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(self.knobView.frame), CGRectGetMidY(self.knobView.frame))]];
+        [animation6 setDuration:0.3];
+        [animation6 setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+        [self.knobView.layer addAnimation:animation6 forKey:NULL];
+    }
 }
 
 #pragma mark - Private API
@@ -366,54 +375,21 @@
 {
     if (recognizer.state == UIGestureRecognizerStateEnded) {
         [self setOn:!self.isOn animated:NO];
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
     }
 }
 
 - (void)handlePanGestureRecognizerEvent:(UIPanGestureRecognizer *)recognizer
 {
-    CGFloat margin = (CGRectGetHeight(self.bounds) - ZJSwitchKnobSize) / 2.0;
-    CGFloat offset = 6.0f;
     
     switch (recognizer.state) {
         case UIGestureRecognizerStateBegan:{
-            if (!self.isOn) {
-                [UIView animateWithDuration:0.25
-                                 animations:^{
-                                     self.knobView.frame = CGRectMake(margin,
-                                                                      margin,
-                                                                      ZJSwitchKnobSize + offset,
-                                                                      ZJSwitchKnobSize);
-                                 }];
-            } else {
-                [UIView animateWithDuration:0.25
-                                 animations:^{
-                                     self.knobView.frame = CGRectMake(CGRectGetWidth(self.containerView.bounds) - margin - (ZJSwitchKnobSize + offset),
-                                                                      margin,
-                                                                      ZJSwitchKnobSize + offset,
-                                                                      ZJSwitchKnobSize);
-                                 }];
-            }
+            [self scaleKnodViewFrame:YES];
             break;
         }
         case UIGestureRecognizerStateCancelled:
         case UIGestureRecognizerStateFailed: {
-            if (!self.isOn) {
-                [UIView animateWithDuration:0.25
-                                 animations:^{
-                                     self.knobView.frame = CGRectMake(margin,
-                                                                      margin,
-                                                                      ZJSwitchKnobSize,
-                                                                      ZJSwitchKnobSize);
-                                 }];
-            } else {
-                [UIView animateWithDuration:0.25
-                                 animations:^{
-                                     self.knobView.frame = CGRectMake(CGRectGetWidth(self.containerView.bounds) - ZJSwitchKnobSize,
-                                                                      margin,
-                                                                      ZJSwitchKnobSize,
-                                                                      ZJSwitchKnobSize);
-                                 }];
-            }
+            [self scaleKnodViewFrame:NO];
             break;
         }
         case UIGestureRecognizerStateChanged:{
@@ -421,10 +397,45 @@
         }
         case UIGestureRecognizerStateEnded:
             [self setOn:!self.isOn animated:YES];
+            [self sendActionsForControlEvents:UIControlEventValueChanged];
             break;
         case UIGestureRecognizerStatePossible:
             break;
     }
+}
+
+- (void)scaleKnodViewFrame:(BOOL)scale
+{
+    CGFloat margin = (CGRectGetHeight(self.bounds) - ZJSwitchKnobSize) / 2.0;
+    CGFloat offset = 6.0f;
+    
+    CGRect preFrame = self.knobView.frame;
+    
+    if (self.isOn) {
+        self.knobView.frame = CGRectMake(CGRectGetWidth(self.containerView.bounds) - ZJSwitchKnobSize - margin - (scale ? offset : 0),
+                                         margin,
+                                         ZJSwitchKnobSize + (scale ? offset : 0),
+                                         ZJSwitchKnobSize);
+    } else {
+        self.knobView.frame = CGRectMake(margin,
+                                         margin,
+                                         ZJSwitchKnobSize + (scale ? offset : 0),
+                                         ZJSwitchKnobSize);
+    }
+    
+    CABasicAnimation *animation1 = [CABasicAnimation animationWithKeyPath:@"bounds"];
+    [animation1 setFromValue:[NSValue valueWithCGRect:CGRectMake(0, 0, CGRectGetWidth(preFrame), CGRectGetHeight(preFrame))]];
+    [animation1 setToValue:[NSValue valueWithCGRect:CGRectMake(0, 0, CGRectGetWidth(self.knobView.frame), CGRectGetHeight(self.knobView.frame))]];
+    [animation1 setDuration:0.3];
+    [animation1 setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [self.knobView.layer addAnimation:animation1 forKey:NULL];
+    
+    CABasicAnimation *animation2 = [CABasicAnimation animationWithKeyPath:@"position"];
+    [animation2 setFromValue:[NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(preFrame), CGRectGetMidY(preFrame))]];
+    [animation2 setToValue:[NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(self.knobView.frame), CGRectGetMidY(self.knobView.frame))]];
+    [animation2 setDuration:0.3];
+    [animation2 setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [self.knobView.layer addAnimation:animation2 forKey:NULL];
 }
 
 @end
