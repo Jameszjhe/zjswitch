@@ -62,6 +62,8 @@
     ZJSwitch *switch2 = [[ZJSwitch alloc] initWithFrame:CGRectMake(100, 180, 80, 31)];
     switch2.backgroundColor = [UIColor clearColor];
     switch2.tintColor = [UIColor orangeColor];
+    switch2.onTextColor = [UIColor redColor];
+    switch2.offTextColor = [UIColor orangeColor];
     switch2.onText = @"ON";
     switch2.offText = @"OFF";
     [switch2 addTarget:self action:@selector(handleSwitchEvent:) forControlEvents:UIControlEventValueChanged];

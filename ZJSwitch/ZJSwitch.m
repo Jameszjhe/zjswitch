@@ -41,6 +41,7 @@
 @property (nonatomic, strong) UIView *knobView;
 @property (nonatomic, strong) UILabel *onLabel;
 @property (nonatomic, strong) UILabel *offLabel;
+@property (nonatomic, strong) UIView *borderView;
 
 - (void)commonInit;
 
@@ -113,7 +114,15 @@
     if (_onTintColor != onTintColor) {
         _onTintColor = onTintColor;
         
-        _onContentView.backgroundColor = onTintColor;
+        if (_style == ZJSwitchStyleNoBorder) {
+            _onContentView.backgroundColor = _onTintColor;
+        } else {
+            if (_on) {
+                _borderView.layer.borderColor = _onTintColor.CGColor;
+                
+                _knobView.backgroundColor = _onTintColor;
+            }
+        }
     }
 }
 
@@ -122,7 +131,15 @@
     if (_tintColor != tintColor) {
         _tintColor = tintColor;
         
-        _offContentView.backgroundColor = tintColor;
+        if (_style == ZJSwitchStyleNoBorder) {
+            _offContentView.backgroundColor = tintColor;
+        } else {
+            if (!_on) {
+                _borderView.layer.borderColor = _tintColor.CGColor;
+                
+                _knobView.backgroundColor = _tintColor;
+            }
+        }
     }
 }
 
@@ -132,6 +149,49 @@
         _thumbTintColor = thumbTintColor;
         
         _knobView.backgroundColor = _thumbTintColor;
+    }
+}
+
+- (void)setOnTextColor:(UIColor *)onTextColor
+{
+    if (_onTextColor != onTextColor) {
+        _onTextColor = onTextColor;
+        
+        _onLabel.textColor = onTextColor;
+    }
+}
+
+- (void)setOffTextColor:(UIColor *)offTextColor
+{
+    if (_offTextColor != offTextColor) {
+        _offTextColor = offTextColor;
+        
+        _offLabel.textColor = _offTextColor;
+    }
+}
+
+- (void)setStyle:(ZJSwitchStyle)style
+{
+    if (_style != style) {
+        _style = style;
+        
+        if (_style == ZJSwitchStyleNoBorder) {
+            _onContentView.backgroundColor = _onTintColor;
+            _offContentView.backgroundColor = _tintColor;
+            
+            _borderView.hidden = YES;
+            
+            _knobView.backgroundColor = _thumbTintColor;
+        } else {
+            _onContentView.backgroundColor = [UIColor clearColor];
+            _offContentView.backgroundColor = [UIColor clearColor];
+            
+            _borderView.hidden = NO;
+            
+            _knobView.backgroundColor = _on ? _onTintColor : _tintColor;
+        }
+        
+        [self setNeedsLayout];
     }
 }
 
@@ -147,6 +207,11 @@
     self.containerView.layer.masksToBounds = YES;
     
     CGFloat margin = (CGRectGetHeight(self.bounds) - ZJSwitchKnobSize) / 2.0;
+    
+    self.borderView.frame = self.bounds;
+    self.borderView.layer.borderWidth = 1.0;
+    self.borderView.layer.cornerRadius = r;
+    self.borderView.layer.masksToBounds = YES;
     
     if (!self.isOn) {
         // frame of off status
@@ -231,6 +296,12 @@
                                          margin,
                                          ZJSwitchKnobSize,
                                          ZJSwitchKnobSize);
+        
+        if (_style == ZJSwitchStyleBorder) {
+            self.borderView.layer.borderColor = _tintColor.CGColor;
+            
+            self.knobView.backgroundColor = _tintColor;
+        }
     } else {
         // frame of on status
         self.onContentView.frame = CGRectMake(0,
@@ -247,6 +318,12 @@
                                          margin,
                                          ZJSwitchKnobSize,
                                          ZJSwitchKnobSize);
+        
+        if (_style == ZJSwitchStyleBorder) {
+            self.borderView.layer.borderColor = _onTintColor.CGColor;
+            
+            self.knobView.backgroundColor = _onTintColor;
+        }
     }
     
     if (animated) {
@@ -303,34 +380,39 @@
 {
     self.backgroundColor = [UIColor clearColor];
     
+    _style = ZJSwitchStyleBorder;
+    
     _onTintColor = [UIColor colorWithRed:130 / 255.0 green:200 / 255.0 blue:90 / 255.0 alpha:1.0];
     _tintColor = [UIColor colorWithWhite:0.75 alpha:1.0];
     _thumbTintColor = [UIColor colorWithWhite:1.0 alpha:1.0];
     
     _textFont = [UIFont systemFontOfSize:10.0f];
-    _textColor = [UIColor whiteColor];
+    _onTextColor = [UIColor whiteColor];
+    _offTextColor = _onTextColor;
     
     _containerView = [[UIView alloc] initWithFrame:self.bounds];
     _containerView.backgroundColor = [UIColor clearColor];
     [self addSubview:_containerView];
     
+    _borderView = [[UIView alloc] initWithFrame:CGRectZero];
+    _borderView.userInteractionEnabled = NO;
+    _borderView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.2];
+    _borderView.layer.borderColor = _on ? _onTintColor.CGColor : _tintColor.CGColor;
+    _borderView.hidden = (_style == ZJSwitchStyleNoBorder) ? YES : NO;
+    [_containerView addSubview:_borderView];
+    
     _onContentView = [[UIView alloc] initWithFrame:self.bounds];
-    _onContentView.backgroundColor = _onTintColor;
+    _onContentView.backgroundColor = (_style == ZJSwitchStyleNoBorder) ? _onTintColor : [UIColor clearColor];
     [_containerView addSubview:_onContentView];
     
     _offContentView = [[UIView alloc] initWithFrame:self.bounds];
-    _offContentView.backgroundColor = _tintColor;
+    _offContentView.backgroundColor = (_style == ZJSwitchStyleNoBorder) ? _tintColor : [UIColor clearColor];
     [_containerView addSubview:_offContentView];
-    
-    _knobView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ZJSwitchKnobSize, ZJSwitchKnobSize)];
-    _knobView.backgroundColor = _thumbTintColor;
-    _knobView.layer.cornerRadius = ZJSwitchKnobSize / 2.0;
-    [_containerView addSubview:_knobView];
     
     _onLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _onLabel.backgroundColor = [UIColor clearColor];
     _onLabel.textAlignment = NSTextAlignmentCenter;
-    _onLabel.textColor = _textColor;
+    _onLabel.textColor = _onTextColor;
     _onLabel.font = _textFont;
     _onLabel.text = _onText;
     [_onContentView addSubview:_onLabel];
@@ -338,10 +420,15 @@
     _offLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _offLabel.backgroundColor = [UIColor clearColor];
     _offLabel.textAlignment = NSTextAlignmentCenter;
-    _offLabel.textColor = _textColor;
+    _offLabel.textColor = _offTextColor;
     _offLabel.font = _textFont;
     _offLabel.text = _offText;
     [_offContentView addSubview:_offLabel];
+    
+    _knobView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ZJSwitchKnobSize, ZJSwitchKnobSize)];
+    _knobView.backgroundColor = (_style == ZJSwitchStyleNoBorder) ? _thumbTintColor : (_on ? _onTintColor : _tintColor);
+    _knobView.layer.cornerRadius = ZJSwitchKnobSize / 2.0;
+    [_containerView addSubview:_knobView];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                  action:@selector(handleTapTapGestureRecognizerEvent:)];
@@ -374,7 +461,7 @@
 - (void)handleTapTapGestureRecognizerEvent:(UITapGestureRecognizer *)recognizer
 {
     if (recognizer.state == UIGestureRecognizerStateEnded) {
-        [self setOn:!self.isOn animated:NO];
+        [self setOn:!self.isOn animated:YES];
         [self sendActionsForControlEvents:UIControlEventValueChanged];
     }
 }
