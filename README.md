@@ -68,6 +68,6 @@ How to use it
 How does it look like
 --------
 
-![ZJSwitch](http://jameszjhe.qiniudn.com/zjswitch)
+![ZJSwitch](./zjswitch.png)
 
 
