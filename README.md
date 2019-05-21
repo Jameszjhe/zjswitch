@@ -1,7 +1,7 @@
 ZJSwitch
 ========
 
-ZJSwitch is a simple implmentation for swtich control that similar to UISwitch. 
+ZJSwitch is a simple implementation for swtich control that similar to UISwitch. 
 
 ZJSwitch can add text on control for on of off status.
 
